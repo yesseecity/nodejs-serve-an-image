@@ -11,24 +11,6 @@ var mime = {
     png: 'image/png',
 };
 
-// app.get('/a3', function (req, res) {
-//     dir = img_dir;
-//     var file = path.join(dir, req.path.replace(/\/$/, '/index.html'));
-//     if (file.indexOf(dir + path.sep) !== 0) {
-//         return res.status(403).end('Forbidden');
-//     }
-//     var type = mime[path.extname(file).slice(1)] || 'text/plain';
-//     var s = fs.createReadStream(file);
-//     s.on('open', function () {
-//         res.set('Content-Type', type);
-//         s.pipe(res);
-//     });
-//     s.on('error', function () {
-//         res.set('Content-Type', 'text/plain');
-//         res.status(404).end('Not found');
-//     });
-// });
-
 app.get('/img/*', function (req, res) {
   var imgPath = path.join(img_dir, req.path.replace(/\/img\//, ''));
   var type = mime[path.extname(imgPath).slice(1)] ;
